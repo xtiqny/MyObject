@@ -262,6 +262,22 @@ func reverse(value:Int) -> Int {
     return a
 }
     
+    func reverse(_ x: Int) -> Int {
+        var i = x
+        var a = 0
+        
+        while i != 0 {
+            let j = i % 10
+            i = i / 10
+            a = a * 10 + j
+        }
+        
+        if a > Int32.max || a < Int32.min {
+            return 0
+        }
+        return a
+    }
+    
     //两数之和
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     if nums.count < 0 {
@@ -288,5 +304,70 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     return []
 }
     
+    
+
+    
+    func reverseBits(_ n: Int) -> Int {
+        var res = n
+        
+        var i = 0
+        for j in 0..<32 {
+            i = (i << 1) + (res&1)
+            res = res >> 1
+        }
+        return i
+    }
+    
+    //去除数组中重复的数字
+    func removeDuplicates(_ nums:inout[Int]) -> Int {
+        if nums.count < 0 {
+            return 0
+        }
+        
+        var start = 0
+        for i in start+1..<nums.count {
+            if nums[i] != nums[start]
+            {
+                start += 1
+                nums[start] = nums[i]
+            }
+        }
+        return start + 1
+    }
+    
+    
+    func nextGreaterElement(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        
+        if nums1.count <= 0 ||  nums2.count <= 0{
+            return []
+        }
+        
+        var arr = [Int]()
+        for (_,i) in nums1.enumerated() {
+            let a = nums2.firstIndex(of: i)!
+            if a ==  nums2.count - 1{ //当1下标 == 第二个数组最大长度直接是-1，它右边没值了
+                arr.append(-1)
+            }
+            else
+            {
+                var b = false
+                for j in (a + 1)..<nums2.count {
+                    if nums2[j] > i {//遍历比较该值右边的全部数据是否比他大
+                        arr.append(nums2[j])
+                        b = true
+                        break
+                    }
+                }
+                
+                if !b {
+                    arr.append(-1)
+                }
+            }
+        }
+        
+        return arr
+    }
+    
+   
     
 }

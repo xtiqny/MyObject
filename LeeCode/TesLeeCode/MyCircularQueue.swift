@@ -95,3 +95,86 @@ class MyCircularQueue: NSObject {
 }
 
 
+class MyQueue :NSObject{
+    
+    var mainStack = MyStackcc()
+    var temStack = MyStackcc()
+    
+
+    /** Initialize your data structure here. */
+    override init() {
+
+    }
+    
+    /** Push element x to the back of queue. */
+    func push(_ x: Int) {
+        mainStack.push(x)
+    }
+    
+    /** Removes the element from in front of queue and returns that element. */
+    func pop() -> Int {
+       return mainStack.pop()
+    }
+    
+    /** Get the front element. */
+    func peek() -> Int {
+        return mainStack.peek()
+    }
+    
+    /** Returns whether the queue is empty. */
+    func empty() -> Bool {
+        return mainStack.isEmpty()
+    }
+}
+
+
+class MyStackcc: NSObject{
+    var array = [Int]()
+    
+    func push(_ x:Int)  {
+        array.append(x)
+    }
+    
+    func pop() -> Int {
+        return array.removeFirst()
+    }
+    
+    func peek() -> Int {
+        return array.first!
+    }
+    
+    func isEmpty() -> Bool{
+        return array.isEmpty;
+    }
+    
+    func size() -> Int {
+        return array.count;
+    }
+}
+
+
+ func isPalindrome(_ s: String) -> Bool {
+    if s.count <= 0 {
+        return false
+    }
+    
+    var strArray = [Character]()
+    
+    
+    for str in s.lowercased() {
+        if (str >= "a" && str <= "9") || (str >= "a" && str<="z"){
+            strArray.append(str)
+        }
+    }
+    
+    let len = strArray.count
+    for i in 0..<strArray.count{
+        if strArray[i] != strArray[len - i - 1]
+        {
+            return false
+        }
+    }
+    return true
+}
+
+
