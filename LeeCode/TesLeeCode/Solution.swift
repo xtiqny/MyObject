@@ -336,6 +336,7 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     }
     
     
+    //两个列表 相当的下一个数若比他大 数组中c存该数 比他下 w存-1
     func nextGreaterElement(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
         
         if nums1.count <= 0 ||  nums2.count <= 0{
@@ -366,6 +367,73 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         }
         
         return arr
+    }
+    
+    
+    //模式匹配
+    func patternMatching(_ pattern: String, _ value: String) -> Bool {
+
+        if pattern.isEmpty || value.isEmpty {
+            return true
+        }
+        
+        var aBool = false
+        var bBool = false
+        
+        
+        if value.isEmpty {
+            for s in pattern {
+                if s == "a" {
+                    aBool = true
+                }
+                
+                if s == "b" {
+                    bBool = true
+                }
+            }
+            
+            if aBool && bBool {
+                return false
+            }
+        }
+        
+//        for c in value {
+//            value.c
+//        }
+        
+        return false
+    }
+    
+    
+    //找K的最小数z数字
+    func getLeastNumbers(_ arr: [Int], _ k: Int) -> [Int] {
+
+        if arr.count <= 0 || k == 0{
+            return []
+        }
+        
+        
+        var array1 = arr
+        var array = [Int]()
+        
+        for i in 0..<array1.count {
+            for j in i+1..<array1.count {
+                if array1[i] > array1[j]
+                {
+                    let tep = array1[i]
+                    array1[i] = array1[j]
+                    array1[j] = tep
+                }
+            }
+        }
+        
+        for c in array1 {
+            if array.count < k  {
+                array.append(c)
+            }
+        }
+        
+        return array
     }
     
    

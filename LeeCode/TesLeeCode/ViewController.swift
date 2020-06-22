@@ -57,6 +57,11 @@ class ViewController: UIViewController {
            queue.peek();  // 返回 1
            queue.pop();   // 返回 1
            queue.empty(); // 返回 false
+        
+        
+        
+        
+        var test9 = [Solution.init().getLeastNumbers([3,2,1], 2)]
     }
     
     
