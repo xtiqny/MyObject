@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 //是否会执行
 -(void)testGCD4;
 
+
+//把数字和1做与运算，判断最低位是不是1
 - (NSInteger)numberOf:(NSInteger)n;
 
 @end
