@@ -60,8 +60,40 @@ class ViewController: UIViewController {
         
         
         
-        
+        ////找K的最小数z数字
         var test9 = [Solution.init().getLeastNumbers([3,2,1], 2)]
+        
+        //数组中重复的数字
+        var test10 = [Solution.init().findRepeatNumber([2, 3, 1, 0, 2, 5, 3])]
+        
+         //二维数组中的查找
+        var test11 = [Solution.init().findNumberIn2DArray([
+          [1,   4,  7, 11, 15],
+          [2,   5,  8, 12, 19],
+          [3,   6,  9, 16, 22],
+          [10, 13, 14, 17, 24],
+          [18, 21, 23, 26, 30]
+        ], 5)]
+        
+        //替换空格
+        var test12 = [Solution.init().replaceSpace("We are happy.")]
+        
+        
+        let temp1 = ListNode(1)
+        let temp3 = ListNode(3)
+        let temp2 = ListNode(2)
+        temp1.next = temp3
+        temp3.next = temp2
+        
+        var test13 = [Solution.init().reversePrint(temp1)]
+        
+        //顺时针打印矩阵
+        var test14 = [Solution.init().spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12]])]
+        
+        var test15 = [Solution.init().minCount([2,3,10])]
+        
+        var test16 = [Solution.init().exchange([1,3,5])]
+
     }
     
     

@@ -8,6 +8,15 @@
 
 import UIKit
 
+  public class ListNode {
+      public var val: Int
+      public var next: ListNode?
+      public init(_ val: Int) {
+          self.val = val
+          self.next = nil
+     }
+  }
+ 
 
 class Solution: NSObject {
 
@@ -437,5 +446,279 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     }
     
    
+    //数组中重复的数字
+    func findRepeatNumber(_ nums: [Int]) -> Int {
+        if nums.count <= 0 {
+            return 0;
+        }
+        
+        var str:Set<Int> = []
+        for i in nums {
+            if !str.insert(i).inserted {
+                return i
+            }
+        }
+        return -1
+    }
     
+    //二维数组中的查找
+    func findNumberIn2DArray(_ matrix: [[Int]], _ target: Int) -> Bool {
+
+        if matrix.count <= 0 {
+            return false
+        }
+        
+        for curArray in matrix {
+            
+            for i in curArray
+            {
+                if i == target {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    //二进制1的个数
+    
+    func hammingWeight(_ n: Int) -> Int {
+        if n <= 0 {
+            return 0
+        }
+        
+        var i = 0
+        var a = n
+        
+        while a != 0 {
+            a = a & (a - 1)
+            i += 1
+        }
+        return i
+    }
+    
+    //替换空格
+    func replaceSpace(_ s: String) -> String {
+
+        if s.count <= 0 {
+            return ""
+        }
+        
+        var str = ""
+        for ss in s {
+            if ss == " " {
+                str += "%20"
+            }
+            else{
+                str += ss.description
+            }
+        }
+        
+        return str
+    }
+    
+    
+    //斐波那契数列
+    func fib(_ n: Int) -> Int {
+        if n == 0 {
+            return 0
+        }
+        
+        if n == 1{
+            return 1
+        }
+        
+        var i = 0
+        var a = 1
+        
+        for _ in 2...n {
+            let sum = (i + a) % 1000000007
+            i = a
+            a = sum
+        }
+        
+        return a
+    }
+    
+    //删除链表的节点
+    func deleteNode(_ head: ListNode?, _ val: Int) -> ListNode? {
+        
+        if head != nil &&  head?.val == val{
+            return head?.next
+        }
+        
+        var prev = head
+        
+        while prev?.next != nil {
+            if prev?.next?.val == val {
+                prev?.next = prev?.next?.next
+            }
+            else{
+                prev = prev?.next
+            }
+        }
+        return head
+    }
+    
+    
+    //链表反转
+    func reverseList(_ head: ListNode?) -> ListNode? {
+
+        var prev:ListNode? = nil
+        var cur = head
+        while cur != nil {
+            let temp = cur?.next
+            cur?.next = prev
+            prev = cur
+            cur = temp
+        }
+        return prev
+       }
+    
+    //从尾到头打印链表
+    func reversePrint(_ head: ListNode?) -> [Int] {
+
+        var array = [Int]()
+        var cur = head
+        while cur != nil {
+            array.append(cur!.val)
+            cur = cur?.next
+        }
+        return array.reversed()
+    }
+    
+    
+    // 顺时针打印矩阵
+    func spiralOrder(_ matrix: [[Int]]) -> [Int] {
+        
+        guard matrix.count > 0 else {
+            return []
+        }
+
+        var array = [Int]()
+        
+        var letf = 0
+        var right = matrix.first!.count - 1
+        var top = 0
+        var bommt = matrix.count - 1
+        
+        while true {
+            //从左到右变量  上
+            for i in letf...right{
+                array.append(matrix[top][i])
+            }
+            
+            top+=1
+            if top > bommt {
+                break
+            }
+            
+            //上到下  右
+            for i in top...bommt {
+                array.append(matrix[i][right])
+                
+                
+            }
+            
+            right-=1
+            if letf > right {
+                break
+            }
+            
+            //右到左 下
+            for i in (letf...right).reversed() {
+                array.append(matrix[bommt][i])
+                
+            }
+            
+            bommt-=1
+            if top > bommt {
+                break
+            }
+            
+            //从下到上 左
+            for i in (top...bommt).reversed() {
+                array.append(matrix[i][letf])
+            }
+            
+            letf += 1
+            if letf > right {
+                break
+            }
+        }
+        
+        
+        return array
+    }
+    
+    //拿硬币
+    func minCount(_ coins: [Int]) -> Int {
+
+        guard coins.count > 0 else {
+            return 0
+        }
+        
+        var const = 0
+        for i in coins {
+            if i <= 2 && i > 0 {
+                const += 1
+                continue
+            }
+            
+            let temp = i/2
+            let temp2 = i%2
+            
+            if temp2 != 0 {
+                const += temp + 1
+            }
+            else{
+               const += temp
+            }
+        }
+        return const
+    }
+    
+    
+    func printNumbers(_ n: Int) -> [Int] {
+
+        guard n > 0 else {
+            return []
+        }
+        var max = 9
+        var array = [Int]()
+        for _ in 1..<n {
+            max = max * 10 + 9
+        }
+        
+        for i in 1...max {
+            array.append(i)
+        }
+        
+        return array
+    }
+    
+    
+    //调整数组顺序使奇数位于偶数前面
+    func exchange(_ nums: [Int]) -> [Int] {
+        guard nums.count > 0 else {
+            return []
+        }
+        
+        var array = nums
+        for i in 0..<array.count-1 {
+            
+            if array[i] < 2 {
+                continue
+            }
+            
+            if array[i]%2 != 0 {
+                array.append(array[i])
+                array.remove(at: i)
+            }else{
+                array.insert(array[i], at: array.count-1)
+                array.remove(at: i)
+            }
+        }
+        return array
+    }
 }
