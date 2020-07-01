@@ -127,3 +127,49 @@ class MyQuqu:NSObject {
         return array.count
     }
 }
+
+//包含min函数的栈
+class MinStack {
+    
+    var array:[Int]     //记录全部栈元素
+    var arrayMin:[Int]  //记录最近元素到栈
+    var topValue:Int     //最顶部的元素
+
+    /** initialize your data structure here. */
+    init() {
+         array = [Int]()
+         arrayMin = [Int]()
+         topValue = 0
+    }
+    
+    func push(_ x: Int) {
+        topValue = x
+        array.append(x)
+        if arrayMin.isEmpty {
+            arrayMin.append(x)
+        }else if x <= arrayMin.first! {
+            arrayMin.append(x)
+        }
+    }
+    
+    func pop() {
+        
+        if !array.isEmpty {
+            array.removeLast()
+            if topValue ==  arrayMin.last!{
+                arrayMin.removeLast()
+            }
+            topValue = array.last!
+            
+            
+        }
+    }
+    
+    func top() -> Int {
+        return topValue
+    }
+    
+    func min() -> Int {
+        return arrayMin.last!
+    }
+}

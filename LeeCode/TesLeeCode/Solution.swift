@@ -16,6 +16,17 @@ import UIKit
           self.next = nil
      }
   }
+
+public class TreeNode {
+     public var val: Int
+     public var left: TreeNode?
+     public var right: TreeNode?
+     public init(_ val: Int) {
+         self.val = val
+         self.left = nil
+         self.right = nil
+    }
+ }
  
 
 class Solution: NSObject {
@@ -704,21 +715,117 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
             return []
         }
         
-        var array = nums
-        for i in 0..<array.count-1 {
-            
-            if array[i] < 2 {
-                continue
-            }
-            
+        let array = nums
+        var array1 = [Int]()
+        var array2 = [Int]()
+        for i in 0..<array.count {
+
             if array[i]%2 != 0 {
-                array.append(array[i])
-                array.remove(at: i)
+                array1.append(array[i])
             }else{
-                array.insert(array[i], at: array.count-1)
-                array.remove(at: i)
+                array2.append(array[i])
             }
         }
-        return array
+        return array1 + array2
     }
+    
+    // 链表中倒数第k个节点
+    func getKthFromEnd(_ head: ListNode?, _ k: Int) -> ListNode? {
+
+        guard head != nil else {
+            return nil
+        }
+        
+        var tempHead = head
+        var tempHead2 = head
+        var curNode:ListNode? = nil
+        var cont = 0
+
+        while tempHead != nil {
+            cont += 1
+            tempHead = tempHead?.next
+        }
+
+        let i = cont - k > 0 ? cont - k : 1
+        if i == 1 {
+            return head
+        }
+
+        var j = 0
+        while tempHead2 != nil  {
+            j += 1
+            if i == j {
+                curNode = tempHead2?.next
+                break
+            }else{
+                tempHead2 = tempHead2?.next
+            }
+        }
+        return curNode
+        
+//        var slow = head
+//                var fast = head
+//                var k = k
+//                while fast != nil {
+//                    fast = fast?.next
+//                    if k > 0 {
+//                        k -= 1
+//                    } else {
+//                        slow = slow?.next
+//                    }
+//                }
+//                return slow
+    }
+    
+    //合并两个排序的链表
+    func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        
+        var l1 = l1
+        var l2 = l2
+        
+        var l3:ListNode? = ListNode(0)
+        var temp = l3
+        
+        
+        while l1 != nil && l2 != nil {
+            if l1!.val > l2!.val {
+                temp?.next = l2
+                l2 = l2?.next
+            }else {
+                temp?.next = l1
+                l1 = l1?.next
+            }
+            temp = temp?.next
+        }
+        
+        temp?.next = l1 != nil ? l1 : l2
+        return l3?.next
+    }
+    
+    
+    //二叉树的镜像
+    func mirrorTree(_ root: TreeNode?) -> TreeNode? {
+        
+        
+        guard root != nil else {
+            return nil
+        }
+        
+        return self.mirrorTree2(root)
+    }
+    
+    func mirrorTree2(_ root: TreeNode?) -> TreeNode? {
+        
+        if let trre = root {
+            let i:TreeNode? = trre.left
+            trre.left = trre.right
+            trre.right = i
+            trre.left = self.mirrorTree2(trre.left)
+            trre.right = self.mirrorTree2(trre.right)
+            return trre
+        }
+        
+        return nil
+    }
+    
 }

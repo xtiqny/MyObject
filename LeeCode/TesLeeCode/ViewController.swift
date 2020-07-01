@@ -80,10 +80,14 @@ class ViewController: UIViewController {
         
         
         let temp1 = ListNode(1)
-        let temp3 = ListNode(3)
         let temp2 = ListNode(2)
-        temp1.next = temp3
-        temp3.next = temp2
+        let temp3 = ListNode(3)
+        let temp4 = ListNode(4)
+        let temp5 = ListNode(5)
+        temp1.next = temp2
+        temp2.next = temp3
+        temp3.next = temp4
+        temp4.next = temp5
         
         var test13 = [Solution.init().reversePrint(temp1)]
         
@@ -92,8 +96,45 @@ class ViewController: UIViewController {
         
         var test15 = [Solution.init().minCount([2,3,10])]
         
-        var test16 = [Solution.init().exchange([1,3,5])]
-
+        var test16 = [Solution.init().exchange([1,2,3,4])]
+        
+        var test17 = [Solution.init().getKthFromEnd(temp1, 1)]
+        
+        
+        let tempa = ListNode(1)
+        let tempb = ListNode(2)
+        let tempc = ListNode(4)
+        tempa.next = tempb
+        tempb.next = tempc
+        
+        let tempx = ListNode(1)
+        let tempy = ListNode(3)
+        let tempz = ListNode(4)
+        tempx.next = tempy
+        tempy.next = tempz
+        
+        var test18 = [Solution.init().mergeTwoLists(tempa, tempx)]
+        
+        
+        let tree = TreeNode(4)
+        tree.left = TreeNode(2)
+        tree.right = TreeNode(7)
+        tree.left?.left = TreeNode(1)
+        tree.left?.right = TreeNode(3)
+        tree.right?.left = TreeNode(6)
+        tree.right?.right = TreeNode(9)
+        
+        var test19 = [Solution.init().mirrorTree(tree)]
+        
+        
+        var minStack = MinStack.init()
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        minStack.min();
+        minStack.pop();
+        minStack.top();
+        minStack.min();
     }
     
     
