@@ -172,4 +172,31 @@ class MinStack {
     func min() -> Int {
         return arrayMin.last!
     }
+    
+    
+    //
+    class CQueue {
+
+
+        var array = [Int]()
+        var array2 = [Int]()
+        init() {
+
+        }
+        
+        func appendTail(_ value: Int) {
+            array.append(value)
+        }
+        
+        func deleteHead() -> Int {
+            if array2.isEmpty {
+                while let i = array.popLast() {
+                    array2.append(i)
+                               }
+            }
+            
+            return array2.popLast() ?? -1
+        }
+    }
+    
 }

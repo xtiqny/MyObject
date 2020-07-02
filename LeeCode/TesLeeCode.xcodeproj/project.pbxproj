@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C713129247CC929008A9DBF /* MyStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C713128247CC929008A9DBF /* MyStack.swift */; };
+		9C73439224AC7D600080CFF3 /* CloudFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C73439124AC7D600080CFF3 /* CloudFunction.swift */; };
 		9C75F376247B962A00ACDFFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F375247B962A00ACDFFC /* AppDelegate.swift */; };
 		9C75F378247B962A00ACDFFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F377247B962A00ACDFFC /* SceneDelegate.swift */; };
 		9C75F37A247B962A00ACDFFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C75F379247B962A00ACDFFC /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		9C713128247CC929008A9DBF /* MyStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStack.swift; sourceTree = "<group>"; };
+		9C73439124AC7D600080CFF3 /* CloudFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudFunction.swift; sourceTree = "<group>"; };
 		9C75F372247B962A00ACDFFC /* TesLeeCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TesLeeCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C75F375247B962A00ACDFFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C75F377247B962A00ACDFFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				9C75F3A5247B966900ACDFFC /* MyCircularQueue.swift */,
 				9C713128247CC929008A9DBF /* MyStack.swift */,
 				9C75F3A7247BB95F00ACDFFC /* Solution.swift */,
+				9C73439124AC7D600080CFF3 /* CloudFunction.swift */,
 			);
 			path = TesLeeCode;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				9C75F37A247B962A00ACDFFC /* ViewController.swift in Sources */,
 				9C75F376247B962A00ACDFFC /* AppDelegate.swift in Sources */,
 				9C75F378247B962A00ACDFFC /* SceneDelegate.swift in Sources */,
+				9C73439224AC7D600080CFF3 /* CloudFunction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

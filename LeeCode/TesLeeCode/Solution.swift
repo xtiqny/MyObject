@@ -435,6 +435,16 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         
         var array1 = arr
         var array = [Int]()
+//        var const = 0
+//        var curValue = 0
+//
+//        for i in arr {
+//            if const == 0 {
+//                curValue = i
+//            }
+//
+//            const += curValue < i ? 1 : -1
+//        }
         
         for i in 0..<array1.count {
             for j in i+1..<array1.count {
@@ -446,14 +456,14 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
                 }
             }
         }
+
+//        for c in array1 {
+//            if array.count < k  {
+//                array.append(c)
+//            }
+//        }
         
-        for c in array1 {
-            if array.count < k  {
-                array.append(c)
-            }
-        }
-        
-        return array
+        return Array.init(array1.prefix(k))
     }
     
    
@@ -828,4 +838,77 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         return nil
     }
     
+    //从上到下打印二叉树 II
+    func levelOrder(_ root: TreeNode?) -> [[Int]] {
+        guard root != nil else {
+            return []
+        }
+        
+        var array = [[Int]]()
+        var treeaArray = [TreeNode]()
+        treeaArray.append(root!)
+        
+        var i = 0
+        
+        while treeaArray.count > 0 {
+            i += 1
+            var levels = [Int]()
+            for _ in treeaArray {
+                let node = treeaArray.removeFirst()
+                levels.append(node.val)
+                
+                if i%2 == 0 {
+                    if let right = node.right  {
+                        treeaArray.append(right)
+                    }
+                    
+                    if  let left = node.left  {
+                        treeaArray.append(left)
+                    }
+                }
+                else
+                {
+                    if  let left = node.left  {
+                        treeaArray.append(left)
+                    }
+                    
+                    if let right = node.right  {
+                        treeaArray.append(right)
+                    }
+                }
+                
+            }
+            
+        }
+        return array
+    }
+    
+    //从上到下打印二叉树 1
+    func levelOrder2(_ root: TreeNode?) -> [Int] {
+        guard root != nil else {
+            return []
+        }
+        
+        var array = [Int]()
+        var treeArray = [TreeNode]()
+        treeArray.append(root!)
+        
+        while treeArray.count > 0 {
+            
+            for _ in treeArray {
+                let curNode = treeArray.removeFirst()
+                array.append(curNode.val)
+                
+                if let left = curNode.left {
+                    treeArray.append(left)
+                }
+                
+                if let right = curNode.right {
+                    treeArray.append(right)
+                }
+                
+            }
+        }
+        return array
+    }
 }

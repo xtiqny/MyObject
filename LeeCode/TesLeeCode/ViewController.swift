@@ -89,6 +89,7 @@ class ViewController: UIViewController {
         temp3.next = temp4
         temp4.next = temp5
         
+        //链表中倒数第k个节点
         var test13 = [Solution.init().reversePrint(temp1)]
         
         //顺时针打印矩阵
@@ -113,9 +114,11 @@ class ViewController: UIViewController {
         tempx.next = tempy
         tempy.next = tempz
         
+        //合并两个排序的链表
         var test18 = [Solution.init().mergeTwoLists(tempa, tempx)]
         
         
+        //二叉树的镜像
         let tree = TreeNode(4)
         tree.left = TreeNode(2)
         tree.right = TreeNode(7)
@@ -135,6 +138,18 @@ class ViewController: UIViewController {
         minStack.pop();
         minStack.top();
         minStack.min();
+        
+        let tree1 = TreeNode(3)
+        tree1.left = TreeNode(9)
+        tree1.right = TreeNode(20)
+        tree1.right?.left = TreeNode(15)
+        tree1.right?.right = TreeNode(7)
+        
+        //从上到下打印二叉树 1
+        var test20 = [Solution.init().levelOrder2(tree1)]
+        
+        
+        var test21 = [CloudFunction.sharedInstance.majorityElement([1, 2, 3, 2, 2, 2, 5, 4, 2])]
     }
     
     
