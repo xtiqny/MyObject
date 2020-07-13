@@ -150,6 +150,9 @@ class ViewController: UIViewController {
         
         
         var test21 = [CloudFunction.sharedInstance.majorityElement([1, 2, 3, 2, 2, 2, 5, 4, 2])]
+        
+        var test22 = [CloudFunction.sharedInstance.countDigitOne(12)]
+        
     }
     
     

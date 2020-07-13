@@ -27,25 +27,32 @@ class CloudFunction: NSObject {
             const += card == i ? 1 : -1
         }
         return card
+    }
+    
+    //第一个只出现一次的字符
+    func firstUniqChar(_ s: String) -> Character {
+
+    }
+    
+    // 1～n整数中1出现的次数
+    func countDigitOne(_ n: Int) -> Int {
+        guard n > 0 else {
+            return 0
+        }
         
-//        if nums.count == 1
-//        {
-//            return nums.first!
-//        }
-//
-//        let b = nums.count / 2
-//        for  i in 0..<nums.count {
-//            var a = 0
-//            for j in i + 1..<nums.count {
-//                if nums[i] == nums[j] {
-//                    a += 1
-//                }
-//
-//                if a >= b {
-//                    return nums[i]
-//                }
-//            }
-//        }
-//        return 0
+        var a = 1
+        var c = 0
+        var b = 0
+        
+        while a < n {
+            a =  a * 10
+            c =
+            for i in 2...n {
+                if  i / a == 1 || i % a == 1 {
+                    b += 1
+                }
+            }
+        }
+        return b + 1
     }
 }
