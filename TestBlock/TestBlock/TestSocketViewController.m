@@ -19,6 +19,13 @@ static const short sereve_prot = 6969;
 
 @interface TestSocketViewController ()
 @property (nonatomic,assign) NSInteger clinetSocket;
+
+
+//test NSString copy、Weak 、strong
+@property (nonatomic,strong)NSString * stringA;
+@property (nonatomic,strong)NSString * stringA2;
+@property (nonatomic,weak)NSString * stringB;
+@property (nonatomic,copy)NSString * stringC;
 @end
 
 @implementation TestSocketViewController
@@ -33,6 +40,21 @@ static const short sereve_prot = 6969;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.stringA = @"stringA";
+    self.stringB = self.stringA;
+    self.stringA = nil;
+    NSLog(@"stringB=%@",self.stringB);
+    
+    self.stringA = @"stringA";
+    self.stringA2 = self.stringA;
+    self.stringA = nil;
+    NSLog(@"stringB=%@",self.stringA2);
+    
+    self.stringA = [[NSMutableString alloc] initWithString:@"stringA"];
+    self.stringB = self.stringA;
+    self.stringA = nil;
+    NSLog(@"stringB=%@",self.stringB);
 
     
     [[IOSInterview shareInstance] testArrayCopy];
