@@ -148,11 +148,17 @@ class ViewController: UIViewController {
         //从上到下打印二叉树 1
         var test20 = [Solution.init().levelOrder2(tree1)]
         
-        
+        //数组中出现次数超过一半的数字
         var test21 = [CloudFunction.sharedInstance.majorityElement([1, 2, 3, 2, 2, 2, 5, 4, 2])]
         
+        //1～n整数中1出现的次数
         var test22 = [CloudFunction.sharedInstance.countDigitOne(12)]
         
+        //翻转字符
+        var test23 = [Solution.init().reverseWords("the sky is blue")]
+        
+        //翻转单词
+         var test24 = [Solution.init().reverseWords2("the sky is blue")]
     }
     
     

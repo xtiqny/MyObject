@@ -911,4 +911,41 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         }
         return array
     }
+    
+    //字符串翻转
+    func reverseWords(_ s: String) -> String {
+        guard s.count > 0 else {
+            return ""
+        }
+        
+        var array = [Character]()
+        
+        for str in s {
+            array.append(str)
+        }
+        
+        let str2 = array.reversed()
+        
+        var str3 = ""
+        for str in str2 {
+            str3 += str.description
+        }
+        
+        return str3
+    }
+    
+    //单次翻转
+     func reverseWords2(_ s: String) -> String {
+        guard s.count > 0 else {
+            return ""
+        }
+        
+        let strArray = s.split(separator: " ")
+        let arrayStr = strArray.reversed()
+        guard arrayStr.count > 0 else {
+            return ""
+        }
+        
+        return arrayStr.joined(separator:" ")
+    }
 }

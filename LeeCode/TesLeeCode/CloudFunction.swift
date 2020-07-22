@@ -30,9 +30,9 @@ class CloudFunction: NSObject {
     }
     
     //第一个只出现一次的字符
-    func firstUniqChar(_ s: String) -> Character {
-
-    }
+//    func firstUniqChar(_ s: String) -> Character {
+//
+//    }
     
     // 1～n整数中1出现的次数
     func countDigitOne(_ n: Int) -> Int {
@@ -46,7 +46,6 @@ class CloudFunction: NSObject {
         
         while a < n {
             a =  a * 10
-            c =
             for i in 2...n {
                 if  i / a == 1 || i % a == 1 {
                     b += 1
